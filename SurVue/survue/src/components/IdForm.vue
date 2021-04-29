@@ -1,21 +1,21 @@
 <template>
   <div class="form-input-div">
     <div class="input-row">
-      <label for="user-name-input">Enter your name</label>
+      <label for="user-id-input">Enter your national ID</label>
       <input
-        id="user-name-input"
-        type="text"
-        v-model="user_name"
-        placeholder="Joe"
+        id="user-id-input"
+        type="number"
+        v-model="user_id"
+        placeholder="092XXXXXXX"
       />
     </div>
     <div class="input-row">
-      <label for="user-family-name-input">Enter your last name</label>
+      <label for="user-student-id-input">Enter your student number</label>
       <input
-        id="user-family-name-input"
-        type="text"
-        v-model="user_family_name"
-        placeholder="Swanson"
+        id="user-student-id-input"
+        type="number"
+        v-model="user_student_number"
+        placeholder="9831065"
       />
     </div>
   </div>
@@ -23,11 +23,11 @@
 
 <script>
 export default {
-  name: "NameForm",
+  name: "IdForm",
   data() {
     return {
-      user_name: "",
-      user_family_name: "",
+      user_id: "",
+      user_student_number: "",
     };
   },
 };
@@ -48,14 +48,14 @@ export default {
 }
 
 label {
-  width: 200px;
+  width: 250px;
 }
 
 label::after {
   content: " :";
 }
 
-input[type="text"] {
+input[type="number"] {
   padding: 5px 13px;
   height: 50px;
   outline: none;
@@ -66,15 +66,27 @@ input[type="text"] {
   width: 300px;
 }
 
-input[type="text"]:focus {
+input[type="number"]:focus {
   background-color: white;
   color: #25473a;
   border: 1px solid #25473a;
 }
 
-input[type="text"]:hover {
+input[type="number"]:hover {
   background-color: rgb(189, 188, 188);
   color: #193328;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 </style>
 

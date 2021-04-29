@@ -1,22 +1,22 @@
 <template>
   <div>
     <AppHeader />
-    <AppContainer></AppContainer>
-    <AppFooter style="position:absolute; width: 100%; bottom: 0;"/>
+    <AppContainer />
+    <AppFooter />
   </div>
 </template>
 
 <script>
 import AppHeader from "./components/Header";
 import AppFooter from "./components/Footer";
-import AppContainer from "./components/Container"
+import AppContainer from "./components/Container";
 
 export default {
   name: "App",
   components: {
     AppHeader,
     AppFooter,
-    AppContainer
+    AppContainer,
   },
 };
 </script>

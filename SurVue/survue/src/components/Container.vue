@@ -1,6 +1,7 @@
 <template>
   <div>
     <NameForm />
+    <id-form />
     <div id="btns-nav">
       <button>Previous</button>
       <button>Next</button>
@@ -10,11 +11,13 @@
 
 <script>
 import NameForm from "./NameForm";
+import IdForm from "./IdForm";
 
 export default {
   name: "AppContainer",
   components: {
     NameForm,
+    IdForm,
   },
 };
 </script>
