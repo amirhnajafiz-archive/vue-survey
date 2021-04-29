@@ -1,8 +1,8 @@
 <template>
   <div>
     <AppHeader />
-    <AppContainer style="height: 100vh">Hello world</AppContainer>
-    <AppFooter />
+    <AppContainer></AppContainer>
+    <AppFooter style="position:absolute; width: 100%; bottom: 0;"/>
   </div>
 </template>
 
