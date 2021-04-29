@@ -1,19 +1,22 @@
 <template>
   <div>
     <AppHeader />
-    <h1>Hello world</h1>
+    <div style="height: 100vh">Hello world</div>
+    <AppFooter />
   </div>
 </template>
 
 <script>
-import AppHeader from './components/Header'
+import AppHeader from "./components/Header";
+import AppFooter from "./components/Footer";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    AppHeader
-  }
-}
+    AppHeader,
+    AppFooter,
+  },
+};
 </script>
 
 <style>
