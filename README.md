@@ -11,11 +11,12 @@ Todo :
 
 Doing :
 <ul>
-  <li>Create project files</li>
+  <li>Create header and footer templates</li>
   <li>Create the 5 templates</li>
 </ul>
 
 Done :
 <ul>
   <li>Create the project schematic</li>
+  <li>Create project files</li>
 </ul>
