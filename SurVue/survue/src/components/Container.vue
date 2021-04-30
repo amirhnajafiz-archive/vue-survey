@@ -3,6 +3,7 @@
     <NameForm />
     <id-form />
     <birth-form />
+    <university-form />
     <div id="btns-nav">
       <button>Previous</button>
       <button>Next</button>
@@ -14,6 +15,7 @@
 import NameForm from "./NameForm";
 import IdForm from "./IdForm";
 import BirthForm from './BirthForm.vue';
+import UniversityForm from './UniversityForm.vue';
 
 export default {
   name: "AppContainer",
@@ -21,6 +23,7 @@ export default {
     NameForm,
     IdForm,
     BirthForm,
+    UniversityForm,
   },
 };
 </script>
