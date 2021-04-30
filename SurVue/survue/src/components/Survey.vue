@@ -1,62 +1,77 @@
 <template>
-    <div>
-        <label class="new-label">Select your favorite programming languages</label>
-        <div class="input-row">
-            <span v-for="item in programming_languages" :key="item.id">
-                <label v-bind:for="'pitem' + item.id">{{ item.title }}</label>
-                <input v-bind:id="'pitem' + item.id" type="checkbox" v-bind:value="item.value" v-model="favorite_programming_language" />
-            </span>
-        </div>
-        <label class="new-label">Select your favorite front-end framework</label>
-        <div class="input-row">
-            <span v-for="item in front_frameworks" :key="item.id">
-                <label v-bind:for="'fitem' + item.id">{{ item.title }}</label>
-                <input v-bind:id="'fitem' + item.id" type="radio" v-bind:value="item.value" v-model="favorite_front_end" />
-            </span>
-        </div>
-        <label class="new-label">Select your favorite back-end framework</label>
-        <div class="input-row">
-            <span v-for="item in back_framworks" :key="item.id">
-                <label v-bind:for="'bitem' + item.id">{{ item.title }}</label>
-                <input v-bind:id="'bitem' + item.id" type="radio" v-bind:value="item.value" v-model="favorite_front_end" />
-            </span>
-        </div>
+  <div>
+    <label class="new-label">Select your favorite programming languages</label>
+    <div class="input-row">
+      <span v-for="item in programming_languages" :key="item.id">
+        <label v-bind:for="'pitem' + item.id">{{ item.title }}</label>
+        <input
+          v-bind:id="'pitem' + item.id"
+          type="checkbox"
+          v-bind:value="item.value"
+          v-model="favorite_programming_language"
+        />
+      </span>
     </div>
+    <label class="new-label">Select your favorite front-end framework</label>
+    <div class="input-row">
+      <span v-for="item in front_frameworks" :key="item.id">
+        <label v-bind:for="'fitem' + item.id">{{ item.title }}</label>
+        <input
+          v-bind:id="'fitem' + item.id"
+          type="radio"
+          v-bind:value="item.value"
+          v-model="favorite_front_end"
+        />
+      </span>
+    </div>
+    <label class="new-label">Select your favorite back-end framework</label>
+    <div class="input-row">
+      <span v-for="item in back_framworks" :key="item.id">
+        <label v-bind:for="'bitem' + item.id">{{ item.title }}</label>
+        <input
+          v-bind:id="'bitem' + item.id"
+          type="radio"
+          v-bind:value="item.value"
+          v-model="favorite_front_end"
+        />
+      </span>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            favorite_programming_language: [],
-            favorite_back_end: "",
-            favorite_front_end: "",
-            github_id: "",
-            programming_languages: [
-                {id: 0, value: "C", title: "C programming language"},
-                {id: 1, value: "C++", title: "CPP"},
-                {id: 2, value: "C#", title: "C sharp"},
-                {id: 3, value: "Java", title: "Java programming language"},
-                {id: 4, value: "Python", title: "Python / Python3"},
-                {id: 4, value: "JS", title: "Javascript"},
-                {id: 4, value: "Go", title: "Golang"},
-            ],
-            front_frameworks: [
-                {id: 0, value: "Vue", title: "Vue.js"},
-                {id: 1, value: "React", title: "React.js"},
-                {id: 2, value: "Angular", title: "Angular"},
-                {id: 3, value: "JQ", title: "JQuery"},
-            ],
-            back_framworks: [
-                {id: 0, value: "PHP", title: "PHP / Laravel"},
-                {id: 1, value: "Node", title: "Node js"},
-                {id: 2, value: "ASP", title: "ASP.NET"},
-                {id: 3, value: "Go", title: "Golang"},
-                {id: 4, value: "Django", title: "Django"},
-            ]
-        }
-    }
-}
+  data() {
+    return {
+      favorite_programming_language: [],
+      favorite_back_end: "",
+      favorite_front_end: "",
+      github_id: "",
+      programming_languages: [
+        { id: 0, value: "C", title: "C programming language" },
+        { id: 1, value: "C++", title: "CPP" },
+        { id: 2, value: "C#", title: "C sharp" },
+        { id: 3, value: "Java", title: "Java programming language" },
+        { id: 4, value: "Python", title: "Python / Python3" },
+        { id: 4, value: "JS", title: "Javascript" },
+        { id: 4, value: "Go", title: "Golang" },
+      ],
+      front_frameworks: [
+        { id: 0, value: "Vue", title: "Vue.js" },
+        { id: 1, value: "React", title: "React.js" },
+        { id: 2, value: "Angular", title: "Angular" },
+        { id: 3, value: "JQ", title: "JQuery" },
+      ],
+      back_framworks: [
+        { id: 0, value: "PHP", title: "PHP / Laravel" },
+        { id: 1, value: "Node", title: "Node js" },
+        { id: 2, value: "ASP", title: "ASP.NET" },
+        { id: 3, value: "Go", title: "Golang" },
+        { id: 4, value: "Django", title: "Django" },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -83,13 +98,13 @@ label::after {
 }
 
 .new-label {
-    background-color: #25473a;
-    color: white;
-    margin: 10px auto;
-    width: 500px;
-    display: block;
-    padding: 20px;
-    border-radius: 10px;
+  background-color: #25473a;
+  color: white;
+  margin: 10px auto;
+  width: 500px;
+  display: block;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 input[type="date"] {

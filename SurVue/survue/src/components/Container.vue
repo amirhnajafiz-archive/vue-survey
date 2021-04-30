@@ -15,9 +15,9 @@
 <script>
 import NameForm from "./NameForm";
 import IdForm from "./IdForm";
-import BirthForm from './BirthForm.vue';
-import UniversityForm from './UniversityForm.vue';
-import Survey from './Survey.vue';
+import BirthForm from "./BirthForm.vue";
+import UniversityForm from "./UniversityForm.vue";
+import Survey from "./Survey.vue";
 
 export default {
   name: "AppContainer",
