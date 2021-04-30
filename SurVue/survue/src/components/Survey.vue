@@ -1,20 +1,20 @@
 <template>
     <div>
-        <label>Select your favorite programming languages</label>
+        <label class="new-label">Select your favorite programming languages</label>
         <div class="input-row">
             <span v-for="item in programming_languages" :key="item.id">
                 <label v-bind:for="'pitem' + item.id">{{ item.title }}</label>
                 <input v-bind:id="'pitem' + item.id" type="checkbox" v-bind:value="item.value" v-model="favorite_programming_language" />
             </span>
         </div>
-        <label>Select your favorite front-end framework</label>
+        <label class="new-label">Select your favorite front-end framework</label>
         <div class="input-row">
             <span v-for="item in front_frameworks" :key="item.id">
                 <label v-bind:for="'fitem' + item.id">{{ item.title }}</label>
                 <input v-bind:id="'fitem' + item.id" type="radio" v-bind:value="item.value" v-model="favorite_front_end" />
             </span>
         </div>
-        <label>Select your favorite back-end framework</label>
+        <label class="new-label">Select your favorite back-end framework</label>
         <div class="input-row">
             <span v-for="item in back_framworks" :key="item.id">
                 <label v-bind:for="'bitem' + item.id">{{ item.title }}</label>
@@ -80,6 +80,16 @@ label {
 
 label::after {
   content: " :";
+}
+
+.new-label {
+    background-color: #25473a;
+    color: white;
+    margin: 10px auto;
+    width: 500px;
+    display: block;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 input[type="date"] {
