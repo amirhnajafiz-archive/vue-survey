@@ -53,8 +53,8 @@ export default {
         { id: 2, value: "C#", title: "C sharp" },
         { id: 3, value: "Java", title: "Java programming language" },
         { id: 4, value: "Python", title: "Python / Python3" },
-        { id: 4, value: "JS", title: "Javascript" },
-        { id: 4, value: "Go", title: "Golang" },
+        { id: 5, value: "JS", title: "Javascript" },
+        { id: 6, value: "Go", title: "Golang" },
       ],
       front_frameworks: [
         { id: 0, value: "Vue", title: "Vue.js" },

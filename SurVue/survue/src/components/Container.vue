@@ -1,13 +1,13 @@
 <template>
   <div>
-    <router-view></router-view>
+    <NameForm v-show="0 == index" />
+    <IdForm v-show="1 == index" />
+    <BirthForm v-show="2 == index" />
+    <UniversityForm v-show="3 == index" />
+    <Survey v-show="4 == index" />
     <div id="btns-nav">
-      <div v-if="index > 0">
-        <button id="pre-btn" @click="prev_index"><router-link v-bind:to="site_routes[index-1]">Previous</router-link></button>
-      </div>
-      <div v-if="index < 4">
-        <button id="next-btn" @click="next_index"><router-link v-bind:to="site_routes[index+1]">Next</router-link></button>
-      </div>
+      <button id="pre-btn" @click="prev_index">Previous</button>
+      <button id="next-btn" @click="next_index">Next</button>
     </div>
   </div>
 </template>
@@ -24,8 +24,7 @@ export default {
   data()
   {
     return {
-      index: 1,
-      site_routes: ["/", "/id_form", "/birth_form", "/uni_form", "/survey_form"]
+      index: 0,
     }
   },
   components: {
@@ -34,13 +33,16 @@ export default {
     BirthForm,
     UniversityForm,
     Survey,
+    NameForm,
   },
   methods: {
     next_index() {
-      this.index++;
+      if (this.index < 4)
+        this.index++;
     },
     prev_index() {
-      this.index--;
+      if (this.index > 0)
+        this.index--;
     }
   }
 };
@@ -55,7 +57,7 @@ export default {
   margin: 30px auto;
 }
 
-#btns-nav > div > button {
+#btns-nav > button {
   background-color: #25473a;
   color: #ffffff;
   padding: 10px;
@@ -65,7 +67,7 @@ export default {
   width: 100px;
 }
 
-#btns-nav > div > button:hover {
+#btns-nav > button:hover {
   background-color: #8f8f8f;
   color: #25473a;
 }
