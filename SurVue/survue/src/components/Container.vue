@@ -1,5 +1,6 @@
 <template>
   <div>
+    <web-sitelogo />
     <NameForm v-show="0 == index" />
     <IdForm v-show="1 == index" />
     <BirthForm v-show="2 == index" />
@@ -18,6 +19,7 @@ import IdForm from "./IdForm";
 import BirthForm from "./BirthForm.vue";
 import UniversityForm from "./UniversityForm.vue";
 import Survey from "./Survey.vue";
+import WebSitelogo from './WebSitelogo.vue';
 
 export default {
   name: "AppContainer",
@@ -33,6 +35,7 @@ export default {
     BirthForm,
     UniversityForm,
     Survey,
+    WebSitelogo,
     NameForm,
   },
   methods: {
