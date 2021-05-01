@@ -56,8 +56,8 @@ export default {
         {
           id: 3,
           name: "Other",
-          values: []
-        }
+          values: [],
+        },
       ],
     };
   },
@@ -101,14 +101,14 @@ select {
   outline: none;
   border-radius: 10px;
   border: 0px solid black;
-  background-color: #25473a;
+  background-color: #40c98d;
   color: white;
   width: 300px;
 }
 
 select:hover {
   background-color: gainsboro;
-  color: #193328;
+  color: #27394a;
 }
 </style>
 

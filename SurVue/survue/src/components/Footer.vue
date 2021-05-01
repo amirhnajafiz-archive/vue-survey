@@ -44,14 +44,14 @@ export default {
   position: relative;
   bottom: 0;
   width: 100%;
-  height: 200px;  
-  background-color: #25473a;
-  color: #bfc9c6;
+  height: 22vh;
+  background-color: #40c98d;
+  color: #27394a;
 }
 
 #register-btn {
-  border: 1px solid #bfc9c6;
-  color: #bfc9c6;
+  border: 1px solid #27394a;
+  color: #27394a;
   padding: 15px;
   border-radius: 20px;
   margin-left: 10px;
@@ -59,6 +59,6 @@ export default {
 
 #register-btn:hover {
   background-color: #bfc9c6;
-  color: #25473a;
+  color: #27394a;
 }
 </style>

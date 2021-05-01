@@ -61,20 +61,20 @@ input[type="number"] {
   outline: none;
   border-radius: 10px;
   border: 0px solid black;
-  background-color: #25473a;
+  background-color: #40c98d;
   color: white;
   width: 300px;
 }
 
 input[type="number"]:focus {
   background-color: white;
-  color: #25473a;
-  border: 1px solid #25473a;
+  color: #27394a;
+  border: 1px solid #40c98d;
 }
 
 input[type="number"]:hover {
   background-color: rgb(189, 188, 188);
-  color: #193328;
+  color: #27394a;
 }
 
 /* Chrome, Safari, Edge, Opera */

@@ -10,8 +10,10 @@
       <button id="pre-btn" @click="prev_index">Previous</button>
       <button id="next-btn" @click="next_index">Next</button>
     </div>
-    <div class="row-submit" v-if="4 == index"> 
-      <button type="button" class="btn btn-primary" @click="send_data">Submit</button>
+    <div class="row-submit" v-if="4 == index">
+      <button type="button" class="btn btn-primary" @click="send_data">
+        Submit
+      </button>
     </div>
   </div>
 </template>
@@ -22,15 +24,14 @@ import IdForm from "./IdForm";
 import BirthForm from "./BirthForm.vue";
 import UniversityForm from "./UniversityForm.vue";
 import Survey from "./Survey.vue";
-import WebSitelogo from './WebSitelogo.vue';
+import WebSitelogo from "./WebSitelogo.vue";
 
 export default {
   name: "AppContainer",
-  data()
-  {
+  data() {
     return {
       index: 0,
-    }
+    };
   },
   components: {
     NameForm,
@@ -43,17 +44,15 @@ export default {
   },
   methods: {
     next_index() {
-      if (this.index < 4)
-        this.index++;
+      if (this.index < 4) this.index++;
     },
     prev_index() {
-      if (this.index > 0)
-        this.index--;
+      if (this.index > 0) this.index--;
     },
     send_data() {
-      console.log(this.$route.path)
-    }
-  }
+      console.log(this.$route.path);
+    },
+  },
 };
 </script>
 
@@ -67,7 +66,7 @@ export default {
 }
 
 #btns-nav > button {
-  background-color: #25473a;
+  background-color: #40c98d;
   color: #ffffff;
   padding: 10px;
   outline: none;
@@ -78,7 +77,7 @@ export default {
 
 #btns-nav > button:hover {
   background-color: #8f8f8f;
-  color: #25473a;
+  color: #27394a;
 }
 
 .row-submit {

@@ -4,12 +4,14 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item mr-3">
-            <div :class="['nav-boxing', {'active': currentRouteName == '/'}]">
+            <div :class="['nav-boxing', { active: currentRouteName == '/' }]">
               <router-link tag="a" :to="'/'">Home</router-link>
             </div>
           </li>
           <li class="nav-item">
-            <div :class="['nav-boxing', {'active': currentRouteName == '/survey'}]">
+            <div
+              :class="['nav-boxing', { active: currentRouteName == '/survey' }]"
+            >
               <router-link tag="a" :to="'/survey'">Survey</router-link>
             </div>
           </li>
@@ -31,18 +33,16 @@
 
 <script>
 export default {
-    name: 'AppHeader',
-    computed: {
+  name: "AppHeader",
+  computed: {
     currentRouteName() {
-        return this.$route.path
-    }
-}
-}
-
+      return this.$route.path;
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 .nav-boxing {
   padding: 7px;
   border-radius: 2px;
