@@ -3,14 +3,13 @@ Frontend of an online survey, about programming.
 
 Todo :
 <ul>
-  <li>Find an http client</li>
   <li>Create an http request of user inputs</li>
   <li>Send an http request to webhook</li>
 </ul>
 
 Doing :
 <ul>
-  <li>Route the templates</li>
+  <li>Find an http client</li>
 </ul>
 
 Done :
@@ -19,4 +18,5 @@ Done :
   <li>Create project files</li>
   <li>Create header and footer templates</li>
   <li>Create the 5 templates</li>
+  <li>Route the templates</li>
 </ul>

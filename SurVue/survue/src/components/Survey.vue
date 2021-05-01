@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="survey-container">
     <label class="new-label">Select your favorite programming languages</label>
     <div class="input-row">
       <span v-for="item in programming_languages" :key="item.id">
@@ -32,7 +32,7 @@
           v-bind:id="'bitem' + item.id"
           type="radio"
           v-bind:value="item.value"
-          v-model="favorite_front_end"
+          v-model="favorite_back_end"
         />
       </span>
     </div>
@@ -77,6 +77,10 @@ export default {
 <style scoped>
 * {
   font-size: 20px;
+}
+
+.survey-container {
+  margin-top: 50px;
 }
 
 .input-row {

@@ -10,6 +10,9 @@
       <button id="pre-btn" @click="prev_index">Previous</button>
       <button id="next-btn" @click="next_index">Next</button>
     </div>
+    <div class="row-submit" v-if="4 == index"> 
+      <button type="button" class="btn btn-primary" @click="send_data">Submit</button>
+    </div>
   </div>
 </template>
 
@@ -46,6 +49,9 @@ export default {
     prev_index() {
       if (this.index > 0)
         this.index--;
+    },
+    send_data() {
+      console.log("Send")
     }
   }
 };
@@ -73,5 +79,17 @@ export default {
 #btns-nav > button:hover {
   background-color: #8f8f8f;
   color: #25473a;
+}
+
+.row-submit {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.row-submit > button {
+  padding: 10px 20px;
+  font-size: 20px;
 }
 </style>
