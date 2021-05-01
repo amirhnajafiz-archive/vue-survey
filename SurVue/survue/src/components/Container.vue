@@ -51,7 +51,7 @@ export default {
         this.index--;
     },
     send_data() {
-      console.log("Send")
+      console.log(this.$route.path)
     }
   }
 };
