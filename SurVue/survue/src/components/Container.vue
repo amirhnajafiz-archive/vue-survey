@@ -1,10 +1,6 @@
 <template>
   <div>
-    <NameForm />
-    <id-form />
-    <birth-form />
-    <university-form />
-    <survey />
+    <router-view></router-view>
     <div id="btns-nav">
       <button>Previous</button>
       <button>Next</button>
