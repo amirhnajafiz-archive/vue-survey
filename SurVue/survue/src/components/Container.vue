@@ -2,8 +2,12 @@
   <div>
     <router-view></router-view>
     <div id="btns-nav">
-      <button>Previous</button>
-      <button>Next</button>
+      <div v-if="index > 0">
+        <button id="pre-btn" @click="prev_index"><router-link v-bind:to="site_routes[index-1]">Previous</router-link></button>
+      </div>
+      <div v-if="index < 4">
+        <button id="next-btn" @click="next_index"><router-link v-bind:to="site_routes[index+1]">Next</router-link></button>
+      </div>
     </div>
   </div>
 </template>
@@ -17,6 +21,13 @@ import Survey from "./Survey.vue";
 
 export default {
   name: "AppContainer",
+  data()
+  {
+    return {
+      index: 1,
+      site_routes: ["/", "/id_form", "/birth_form", "/uni_form", "/survey_form"]
+    }
+  },
   components: {
     NameForm,
     IdForm,
@@ -24,6 +35,14 @@ export default {
     UniversityForm,
     Survey,
   },
+  methods: {
+    next_index() {
+      this.index++;
+    },
+    prev_index() {
+      this.index--;
+    }
+  }
 };
 </script>
 
@@ -36,7 +55,7 @@ export default {
   margin: 30px auto;
 }
 
-#btns-nav > button {
+#btns-nav > div > button {
   background-color: #25473a;
   color: #ffffff;
   padding: 10px;
@@ -46,7 +65,7 @@ export default {
   width: 100px;
 }
 
-#btns-nav > button:hover {
+#btns-nav > div > button:hover {
   background-color: #8f8f8f;
   color: #25473a;
 }
