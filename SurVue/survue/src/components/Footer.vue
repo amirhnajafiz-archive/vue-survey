@@ -41,6 +41,10 @@ export default {
 
 <style scoped>
 #app-footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 200px;  
   background-color: #25473a;
   color: #bfc9c6;
 }
