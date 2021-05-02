@@ -46,7 +46,6 @@ export default {
       favorite_programming_language: [],
       favorite_back_end: "",
       favorite_front_end: "",
-      github_id: "",
       programming_languages: [
         { id: 0, value: "C", title: "C programming language" },
         { id: 1, value: "C++", title: "CPP" },
@@ -71,6 +70,16 @@ export default {
       ],
     };
   },
+  methods: {
+    getData()
+    {
+      let data = {};
+      data['favorite_programming_language'] = this.favorite_programming_language
+      data['favorite_back_end'] = this.favorite_back_end
+      data['favorite_front_end'] = this.favorite_front_end
+      return data;
+    }
+  }
 };
 </script>
 

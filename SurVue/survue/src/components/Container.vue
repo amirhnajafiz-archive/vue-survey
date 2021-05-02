@@ -1,11 +1,11 @@
 <template>
   <div>
     <web-sitelogo />
-    <NameForm v-show="0 == index" />
-    <IdForm v-show="1 == index" />
-    <BirthForm v-show="2 == index" />
-    <UniversityForm v-show="3 == index" />
-    <Survey v-show="4 == index" />
+    <NameForm ref="nameform" v-show="0 == index" />
+    <IdForm ref="idform" v-show="1 == index" />
+    <BirthForm ref="birthdate" v-show="2 == index" />
+    <UniversityForm ref="uniform" v-show="3 == index" />
+    <Survey ref="serveyform" v-show="4 == index" />
     <div id="btns-nav">
       <button id="pre-btn" @click="prev_index">Previous</button>
       <button id="next-btn" @click="next_index">Next</button>
@@ -50,7 +50,13 @@ export default {
       if (this.index > 0) this.index--;
     },
     send_data() {
-      console.log(this.$route.path);
+      let data = {};
+      data['namedata'] = this.$refs.nameform.$data;
+      data['iddata'] = this.$refs.idform.$data;
+      data['birthdata'] = this.$refs.birthdate.$data;
+      data['unidata'] = this.$refs.uniform.getData();
+      data['surveydata'] = this.$refs.serveyform.getData();
+      console.log(JSON.stringify(data, null, 2));
     },
   },
 };

@@ -61,6 +61,14 @@ export default {
       ],
     };
   },
+  methods: {
+    getData(){
+      let data = {}
+      data['university_name'] = this.university_name
+      data['facility_of_student'] = this.facility_of_student
+      return data;
+    }
+  },
   watch: {
     university_name: function () {
       this.input_universities.forEach((element) => {
