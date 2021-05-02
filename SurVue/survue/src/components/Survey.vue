@@ -71,15 +71,16 @@ export default {
     };
   },
   methods: {
-    getData()
-    {
+    getData() {
       let data = {};
-      data['favorite_programming_language'] = this.favorite_programming_language
-      data['favorite_back_end'] = this.favorite_back_end
-      data['favorite_front_end'] = this.favorite_front_end
+      data[
+        "favorite_programming_language"
+      ] = this.favorite_programming_language;
+      data["favorite_back_end"] = this.favorite_back_end;
+      data["favorite_front_end"] = this.favorite_front_end;
       return data;
-    }
-  }
+    },
+  },
 };
 </script>
 

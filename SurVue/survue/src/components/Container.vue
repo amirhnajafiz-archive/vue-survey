@@ -51,26 +51,25 @@ export default {
     },
     send_data() {
       let data = {};
-      data['namedata'] = this.$refs.nameform.$data;
-      data['iddata'] = this.$refs.idform.$data;
-      data['birthdata'] = this.$refs.birthdate.$data;
-      data['unidata'] = this.$refs.uniform.getData();
-      data['surveydata'] = this.$refs.serveyform.getData();
-      if (this.checkValidData(data))
-        console.log(JSON.stringify(data, null, 2));
-      else
-        console.log("Error")
+      data["namedata"] = this.$refs.nameform.$data;
+      data["iddata"] = this.$refs.idform.$data;
+      data["birthdata"] = this.$refs.birthdate.$data;
+      data["unidata"] = this.$refs.uniform.getData();
+      data["surveydata"] = this.$refs.serveyform.getData();
+      if (this.checkValidData(data)) console.log(JSON.stringify(data, null, 2));
+      else console.log("Error");
     },
     isNormalInteger(str) {
       var n = Math.floor(Number(str));
       return n !== Infinity && String(n) === str && n >= 0;
     },
-    checkValidData(data)
-    {
-      let nameflag = data['namedata']['user_name'] != "" && data['namedata']['user_family_name'] != ""
-      let idflag =  this.isNormalInteger(data['iddata']['user_id'])
-      return nameflag && idflag
-    }
+    checkValidData(data) {
+      let nameflag =
+        data["namedata"]["user_name"] != "" &&
+        data["namedata"]["user_family_name"] != "";
+      let idflag = this.isNormalInteger(data["iddata"]["user_id"]);
+      return nameflag && idflag;
+    },
   },
 };
 </script>
