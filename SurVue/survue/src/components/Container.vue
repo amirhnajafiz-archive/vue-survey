@@ -56,8 +56,21 @@ export default {
       data['birthdata'] = this.$refs.birthdate.$data;
       data['unidata'] = this.$refs.uniform.getData();
       data['surveydata'] = this.$refs.serveyform.getData();
-      console.log(JSON.stringify(data, null, 2));
+      if (this.checkValidData(data))
+        console.log(JSON.stringify(data, null, 2));
+      else
+        console.log("Error")
     },
+    isNormalInteger(str) {
+      var n = Math.floor(Number(str));
+      return n !== Infinity && String(n) === str && n >= 0;
+    },
+    checkValidData(data)
+    {
+      let nameflag = data['namedata']['user_name'] != "" && data['namedata']['user_family_name'] != ""
+      let idflag =  this.isNormalInteger(data['iddata']['user_id'])
+      return nameflag && idflag
+    }
   },
 };
 </script>
