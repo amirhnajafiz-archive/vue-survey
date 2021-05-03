@@ -56,7 +56,20 @@ export default {
       data["birthdata"] = this.$refs.birthdate.$data;
       data["unidata"] = this.$refs.uniform.getData();
       data["surveydata"] = this.$refs.serveyform.getData();
-      if (this.checkValidData(data)) console.log(JSON.stringify(data, null, 2));
+      if (this.checkValidData(data))
+      { 
+        const request = new Request(
+        "https://webhook.site/76e566ce-c9c9-4e2c-9d24-fa305062cf15",
+        {
+          method: "POST",
+          mode: "cors",
+          cache: "default",
+          body: JSON.stringify(data)
+        }
+      );      
+      const res = fetch(request);
+      console.log("Success");
+      }
       else console.log("Error");
     },
     isNormalInteger(str) {
