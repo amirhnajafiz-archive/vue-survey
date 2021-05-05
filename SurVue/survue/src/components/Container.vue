@@ -17,7 +17,7 @@
     </div>
     <div class="request-res" v-if="sendIsOn">
       <span>{{ resultmsg }}</span>
-      <button @click="sendIsOn=false">&#10003;</button>
+      <button @click="sendIsOn = false">&#10003;</button>
     </div>
     <div class="exceptions" v-if="formErrors.length != 0">
       <p>Please fix these errors:</p>
@@ -52,7 +52,7 @@ export default {
       index: 0,
       formErrors: [],
       sendIsOn: false,
-      resultmsg: ""
+      resultmsg: "",
     };
   },
   components: {
@@ -85,23 +85,18 @@ export default {
     },
     sendHTTP(data) {
       var xhttp = new XMLHttpRequest();
-      var msg = ""
+      var msg = "";
       xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           msg = this.responseText;
         } else {
           msg = "Request could not be sent.";
+          console.log(this.responseText);
         }
       };
-      xhttp.open("POST", "https://webhook.site/76e566ce-c9c9-4e2c-9d24-fa305062cf15", true);
-      xhttp.setRequestHeader(
-        "Content-type",
-        "JSON"
-      );
-      xhttp.setRequestHeader(
-        "Access-Control-Allow-Origin", 
-        "*"
-      );
+      xhttp.open("POST", "https://www.google.com", true);
+      xhttp.setRequestHeader("Content-type", "JSON");
+      xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
       xhttp.send(data);
       return msg;
     },
@@ -248,7 +243,7 @@ export default {
   color: rgb(75, 26, 26);
 }
 
-.error_item > button:hover {
+.request-res > button:hover {
   background-color: rgb(148, 52, 52);
   color: #ffffff;
 }
