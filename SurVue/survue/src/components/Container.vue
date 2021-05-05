@@ -15,6 +15,10 @@
         Submit
       </button>
     </div>
+    <div class="request-res" v-if="sendIsOn">
+      <span>{{ resultmsg }}</span>
+      <button @click="sendIsOn=false">&#10003;</button>
+    </div>
     <div class="exceptions" v-if="formErrors.length != 0">
       <p>Please fix these errors:</p>
       <ul>
@@ -47,6 +51,8 @@ export default {
     return {
       index: 0,
       formErrors: [],
+      sendIsOn: false,
+      resultmsg: ""
     };
   },
   components: {
@@ -67,25 +73,37 @@ export default {
     },
     send_data() {
       this.formErrors = [];
+      this.sendIsOn = false;
       const user_data = this.getFormsData();
       let errors = this.handleErrors(user_data);
       if (errors.length == 0) {
-        const request = new Request(
-          "https://webhook.site/76e566ce-c9c9-4e2c-9d24-fa305062cf15", // todo: This url changes everytime we send the request
-          {
-            // todo: Set the URL headers
-            method: "POST",
-            mode: "cors",
-            cache: "default",
-            body: JSON.stringify(user_data),
-          }
-        );
-        const res = fetch(request);
-        // todo: Handel the request result and show message to the user
-        console.log("Success");
+        this.sendIsOn = true;
+        this.resultmsg = this.sendHTTP(user_data);
       } else {
         this.formErrors = errors;
       }
+    },
+    sendHTTP(data) {
+      var xhttp = new XMLHttpRequest();
+      var msg = ""
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          msg = this.responseText;
+        } else {
+          msg = "Request could not be sent.";
+        }
+      };
+      xhttp.open("POST", "https://webhook.site/76e566ce-c9c9-4e2c-9d24-fa305062cf15", true);
+      xhttp.setRequestHeader(
+        "Content-type",
+        "JSON"
+      );
+      xhttp.setRequestHeader(
+        "Access-Control-Allow-Origin", 
+        "*"
+      );
+      xhttp.send(data);
+      return msg;
     },
     getFormsData() {
       let data = {};
@@ -125,7 +143,7 @@ export default {
       return fname && lname;
     },
     isValidId(id) {
-      return id.length == 10 && !isNaN(id) && id.startsWith("092");
+      return id.length != 10 && !isNaN(id) && id.startsWith("092");
     },
     isValidUniId(id) {
       return id.length > 6 && id.length < 10 && !isNaN(id);
@@ -205,6 +223,33 @@ export default {
 
 .error_item > button:hover {
   background-color: rgb(7, 100, 64);
+  color: #ffffff;
+}
+
+.request-res {
+  display: flex;
+  width: 40%;
+  margin: 20px auto;
+  background-color: rgb(10, 153, 98);
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  justify-content: space-between;
+}
+
+.request-res > button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  outline: none;
+  border: 0px solid black;
+  background-color: rgb(75, 26, 26);
+  color: rgb(75, 26, 26);
+}
+
+.error_item > button:hover {
+  background-color: rgb(148, 52, 52);
   color: #ffffff;
 }
 </style>
