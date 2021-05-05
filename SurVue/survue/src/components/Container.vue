@@ -18,8 +18,9 @@
     <div class="exceptions" v-if="formErrors.length != 0">
       <p>Please fix these errors:</p>
       <ul>
-        <li v-for="(error, index) in formErrors" :key="index">
-          {{ error }}
+        <li class="error_item" v-for="(error, index) in formErrors" :key="index">
+          <span>{{ error }}</span>
+          <button @click="formErrors.splice(formErrors.indexOf(error), 1)"></button>
         </li>
       </ul>
     </div>
@@ -164,5 +165,38 @@ export default {
 .row-submit > button {
   padding: 10px 20px;
   font-size: 20px;
+}
+
+.exceptions {
+  width: 60%;
+  margin: 10px auto;
+  padding: 20px;
+}
+
+.exceptions > ul {
+  list-style-type: symbols('>');
+}
+
+.error_item {
+  display: flex;
+  background-color: rgb(75, 26, 26);
+  color: rgb(255, 255, 255);
+  margin: 10px 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  justify-content: space-between;
+}
+
+.error_item > button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  outline: none;
+  border: 0px solid black;
+  background-color: rgb(10, 153, 98);
+}
+
+.error_item > button:hover {
+  background-color: rgb(7, 100, 64);
 }
 </style>
