@@ -18,9 +18,15 @@
     <div class="exceptions" v-if="formErrors.length != 0">
       <p>Please fix these errors:</p>
       <ul>
-        <li class="error_item" v-for="(error, index) in formErrors" :key="index">
+        <li
+          class="error_item"
+          v-for="(error, index) in formErrors"
+          :key="index"
+        >
           <span>{{ error }}</span>
-          <button @click="formErrors.splice(formErrors.indexOf(error), 1)"></button>
+          <button @click="formErrors.splice(formErrors.indexOf(error), 1)">
+            &#10003;
+          </button>
         </li>
       </ul>
     </div>
@@ -174,7 +180,7 @@ export default {
 }
 
 .exceptions > ul {
-  list-style-type: symbols('>');
+  list-style-type: symbols(">");
 }
 
 .error_item {
@@ -194,9 +200,11 @@ export default {
   outline: none;
   border: 0px solid black;
   background-color: rgb(10, 153, 98);
+  color: rgb(10, 153, 98);
 }
 
 .error_item > button:hover {
   background-color: rgb(7, 100, 64);
+  color: #ffffff;
 }
 </style>
