@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import NameForm from "./NameForm";
-import IdForm from "./IdForm";
-import BirthForm from "./BirthForm.vue";
-import UniversityForm from "./UniversityForm.vue";
-import Survey from "./Survey.vue";
+import NameForm from "./Forms/NameForm";
+import IdForm from "./Forms/IdForm";
+import BirthForm from "./Forms/BirthForm.vue";
+import UniversityForm from "./Forms/UniversityForm.vue";
+import Survey from "./Forms/Survey.vue";
 import WebSitelogo from "./WebSitelogo.vue";
 
 export default {

@@ -5,14 +5,18 @@
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item mr-3">
             <div :class="['nav-boxing', { active: currentRouteName == '/' }]">
-              <router-link tag="a" :to="'/'">Home</router-link>
+              <router-link to="/" custom v-slot="{ navigate }">
+                <a @click="navigate" role="link">Home</a>
+              </router-link>
             </div>
           </li>
           <li class="nav-item">
             <div
               :class="['nav-boxing', { active: currentRouteName == '/survey' }]"
             >
-              <router-link tag="a" :to="'/survey'">Survey</router-link>
+              <router-link to="/survey" custom v-slot="{ navigate }">
+                <a @click="navigate" role="link">Survey</a>
+              </router-link>
             </div>
           </li>
         </ul>
