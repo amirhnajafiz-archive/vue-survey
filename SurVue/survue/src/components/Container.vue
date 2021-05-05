@@ -18,7 +18,7 @@
     <div class="exceptions" v-if="formErrors.length != 0">
       <p>Please fix these errors:</p>
       <ul>
-        <li v-for="(error,index) in formErrors" :key="index">
+        <li v-for="(error, index) in formErrors" :key="index">
           {{ error }}
         </li>
       </ul>
@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       index: 0,
-      formErrors: []
+      formErrors: [],
     };
   },
   components: {
@@ -70,18 +70,17 @@ export default {
             method: "POST",
             mode: "cors",
             cache: "default",
-            body: JSON.stringify(data),
+            body: JSON.stringify(user_data),
           }
         );
         const res = fetch(request);
         // todo: Handel the request result and show message to the user
         console.log("Success");
       } else {
-        this.formErrors = errors; // todo: Error handeling in case of bad inputs
+        this.formErrors = errors;
       }
     },
-    getFormsData()
-    {
+    getFormsData() {
       let data = {};
       data["namedata"] = this.$refs.nameform.$data;
       data["iddata"] = this.$refs.idform.$data;
@@ -90,49 +89,43 @@ export default {
       data["surveydata"] = this.$refs.serveyform.getData();
       return data;
     },
-    isNormalInteger(str) {
-      var n = Math.floor(Number(str));
-      return n !== Infinity && String(n) === str && n >= 0;
-    },
     handleErrors(data) {
       let errors = [];
-      if ( !this.isValidUsername(data["namedata"]["user_name"], (data["namedata"]["user_family_name"])) )
-      {
-        errors.push("Your should enter your name and family name.")
+      if (
+        !this.isValidUsername(
+          data["namedata"]["user_name"],
+          data["namedata"]["user_family_name"]
+        )
+      ) {
+        errors.push("Your should enter your name and family name.");
       }
-      if ( !this.isValidId(data["iddata"]["user_id"]) )
-      {
-        errors.push("Your national ID does not have a correct pattern. ( It should be a 10 digits number starting with '092' )")
+      if (!this.isValidId(data["iddata"]["user_id"])) {
+        errors.push(
+          "Your national ID does not have a correct pattern. ( It should be a 10 digits number starting with '092' )"
+        );
       }
-      if ( !this.isValidUniId(data["iddata"]["user_student_number"]) )
-      {
-        errors.push("Your student number has an inccorect format. ( It should be a 6-10 digits number )")
+      if (!this.isValidUniId(data["iddata"]["user_student_number"])) {
+        errors.push(
+          "Your student number has an inccorect format. ( It should be a 6-10 digits number )"
+        );
       }
-      if ( !this.isValidBirthdate(data["birthdata"]["birthDate"]) )
-      {
-        errors.push("Your birthday cannot be in the future.")
+      if (!this.isValidBirthdate(data["birthdata"]["birthDate"])) {
+        errors.push("Your birthday cannot be in the future.");
       }
       return errors;
     },
-    isValidUsername(fname, lname)
-    {
+    isValidUsername(fname, lname) {
       return fname && lname;
     },
-    isValidId(id)
-    {
-      console.log(id.length == 10)
-      console.log(id.startsWith("092"))
-      console.log(this.isNormalInteger(id))
-      return id.length == 10 && this.isNormalInteger(id) && id.startsWith("092");
+    isValidId(id) {
+      return id.length == 10 && !isNaN(id) && id.startsWith("092");
     },
-    isValidUniId(id)
-    {
-      return id.length > 6 && id.length < 10 && this.isNormalInteger(id);
+    isValidUniId(id) {
+      return id.length > 6 && id.length < 10 && !isNaN(id);
     },
-    isValidBirthdate(birthdate)
-    {
+    isValidBirthdate(birthdate) {
       return birthdate;
-    }
+    },
   },
 };
 </script>
