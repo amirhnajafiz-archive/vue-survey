@@ -15,6 +15,14 @@
         Submit
       </button>
     </div>
+    <div class="exceptions" v-if="formErrors.length != 0">
+      <p>Please fix these errors:</p>
+      <ul>
+        <li v-for="(error,index) in formErrors" :key="index">
+          {{ error }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -31,6 +39,7 @@ export default {
   data() {
     return {
       index: 0,
+      formErrors: []
     };
   },
   components: {
@@ -50,13 +59,10 @@ export default {
       if (this.index > 0) this.index--;
     },
     send_data() {
-      let data = {};
-      data["namedata"] = this.$refs.nameform.$data;
-      data["iddata"] = this.$refs.idform.$data;
-      data["birthdata"] = this.$refs.birthdate.$data;
-      data["unidata"] = this.$refs.uniform.getData();
-      data["surveydata"] = this.$refs.serveyform.getData();
-      if (this.checkValidData(data)) {
+      this.formErrors = [];
+      const user_data = this.getFormsData();
+      let errors = this.handleErrors(user_data);
+      if (errors.length == 0) {
         const request = new Request(
           "https://webhook.site/76e566ce-c9c9-4e2c-9d24-fa305062cf15", // todo: This url changes everytime we send the request
           {
@@ -70,19 +76,63 @@ export default {
         const res = fetch(request);
         // todo: Handel the request result and show message to the user
         console.log("Success");
-      } else console.log("Error"); // todo: Error handeling in case of bad inputs
+      } else {
+        this.formErrors = errors; // todo: Error handeling in case of bad inputs
+      }
+    },
+    getFormsData()
+    {
+      let data = {};
+      data["namedata"] = this.$refs.nameform.$data;
+      data["iddata"] = this.$refs.idform.$data;
+      data["birthdata"] = this.$refs.birthdate.$data;
+      data["unidata"] = this.$refs.uniform.getData();
+      data["surveydata"] = this.$refs.serveyform.getData();
+      return data;
     },
     isNormalInteger(str) {
       var n = Math.floor(Number(str));
       return n !== Infinity && String(n) === str && n >= 0;
     },
-    checkValidData(data) {
-      let nameflag =
-        data["namedata"]["user_name"] != "" &&
-        data["namedata"]["user_family_name"] != "";
-      let idflag = this.isNormalInteger(data["iddata"]["user_id"]);
-      return nameflag && idflag;
+    handleErrors(data) {
+      let errors = [];
+      if ( !this.isValidUsername(data["namedata"]["user_name"], (data["namedata"]["user_family_name"])) )
+      {
+        errors.push("Your should enter your name and family name.")
+      }
+      if ( !this.isValidId(data["iddata"]["user_id"]) )
+      {
+        errors.push("Your national ID does not have a correct pattern. ( It should be a 10 digits number starting with '092' )")
+      }
+      if ( !this.isValidUniId(data["iddata"]["user_student_number"]) )
+      {
+        errors.push("Your student number has an inccorect format. ( It should be a 6-10 digits number )")
+      }
+      if ( !this.isValidBirthdate(data["birthdata"]["birthDate"]) )
+      {
+        errors.push("Your birthday cannot be in the future.")
+      }
+      return errors;
     },
+    isValidUsername(fname, lname)
+    {
+      return fname && lname;
+    },
+    isValidId(id)
+    {
+      console.log(id.length == 10)
+      console.log(id.startsWith("092"))
+      console.log(this.isNormalInteger(id))
+      return id.length == 10 && this.isNormalInteger(id) && id.startsWith("092");
+    },
+    isValidUniId(id)
+    {
+      return id.length > 6 && id.length < 10 && this.isNormalInteger(id);
+    },
+    isValidBirthdate(birthdate)
+    {
+      return birthdate;
+    }
   },
 };
 </script>
