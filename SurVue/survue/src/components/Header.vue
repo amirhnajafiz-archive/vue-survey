@@ -35,6 +35,7 @@
             class="URL-span"
             @mouseover="show = !show"
             @mouseleave="show = !show"
+            @click="copytoclipboard"
             >URL</span
           >
         </div>
@@ -72,6 +73,19 @@ export default {
     setTheURL() {
       this.$store.commit("setURL", this.userURL);
       this.userURL = "";
+    },
+    copytoclipboard() {
+      var dummy = document.createElement("textarea");
+      document.body.appendChild(dummy);
+      dummy.value = this.$store.getters.getURL;
+      if (dummy.value == "") {
+        return;
+      }
+      dummy.select();
+      document.execCommand("copy");
+      var msg = "URL copied to clipboard." + "\n" + dummy.value;
+      alert(msg);
+      document.body.removeChild(dummy);
     },
   },
 };

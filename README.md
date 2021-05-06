@@ -21,7 +21,7 @@ Todo :
 
 Doing :
 <ul>
-  <li>Customize layout</li>
+  
 </ul>
 
 Done :
@@ -36,4 +36,5 @@ Done :
   <li>Send an http request to webhook</li>
   <li>Errors handeling</li>
   <li>URL handeling</li>
+  <li>Customize layout</li>
 </ul>
