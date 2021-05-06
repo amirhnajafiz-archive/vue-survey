@@ -72,6 +72,7 @@ export default {
       if (this.index > 0) this.index--;
     },
     send_data() {
+      console.log(this.$route.$FormURL);
       this.formErrors = [];
       this.sendIsOn = false;
       const user_data = this.getFormsData();
@@ -94,7 +95,7 @@ export default {
           console.log(this.responseText);
         }
       };
-      xhttp.open("POST", "https://www.google.com", true);
+      xhttp.open("POST", this.$FormURL, true);
       xhttp.setRequestHeader("Content-type", "JSON");
       xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
       xhttp.send(data);

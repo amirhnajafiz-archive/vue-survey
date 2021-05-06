@@ -16,7 +16,6 @@ a HTTP request via <b>vue-fetch</b>.<br />
 
 Todo :
 <ul>
-  <li>Errors handeling</li>
   <li>Customize layout</li>
   <li>URL handeling</li>
   <li>Authorizing</li>
@@ -37,4 +36,5 @@ Done :
   <li>Find an http client</li>
   <li>Create an http request of user inputs</li>
   <li>Send an http request to webhook</li>
+  <li>Errors handeling</li>
 </ul>

@@ -6,7 +6,7 @@
         style="width: 180px; height: 180px; display: block"
       />
     </div>
-    <div class="webquetoe">Choose Vue, Choose Power</div>
+    <div class="webquetoe">Choose Vue, Choose Power {{ this.FormURL }}</div>
   </div>
 </template>
 
