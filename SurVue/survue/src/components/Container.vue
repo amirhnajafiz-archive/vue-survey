@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="websitecontainer">
     <web-sitelogo />
     <NameForm ref="nameform" v-show="0 == index" />
     <IdForm ref="idform" v-show="1 == index" />
@@ -152,12 +152,18 @@ export default {
 </script>
 
 <style scoped>
+.websitecontainer {
+  margin: 0 0 50px 0;
+}
+
 #btns-nav {
   display: flex;
-  width: 60%;
+  width: 40%;
   max-height: 50px;
   justify-content: space-between;
-  margin: 30px auto;
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 50px;
 }
 
 #btns-nav > button {
