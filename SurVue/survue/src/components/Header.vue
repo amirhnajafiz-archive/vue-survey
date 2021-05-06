@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item ">
+          <li class="nav-item">
             <div :class="['nav-boxing', { active: currentRouteName == '/' }]">
               <router-link to="/" custom v-slot="{ navigate }">
                 <a @click="navigate" role="link">Home</a>
@@ -20,15 +20,15 @@
             </div>
           </li>
         </ul>
-        <div class="mr-5"> 
-          <span>URL</span>
-          <span>{{ this.$store.getters.getURL }}</span>
+        <div class="mr-3">
+          <span class="mr-5" v-show="show">{{ "Current URL : "}}{{ this.$store.getters.getURL == "" ? "Empty" : this.$store.getters.getURL }}</span>
+          <span @mouseover="show=!show" @mouseleave="show=!show">URL</span>
         </div>
         <form class="form-inline my-2 my-lg-0" v-on:submit.prevent="setTheURL">
           <input
             class="form-control mr-sm-2"
             type="search"
-            placeholder="Search"
+            placeholder="Enter the URL"
             v-model="userURL"
           />
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
@@ -41,12 +41,14 @@
 </template>
 
 <script>
+
 export default {
   name: "AppHeader",
-  data(){
+  data() {
     return {
-      userURL: ""
-    }
+      userURL: "",
+      show: false,
+    };
   },
   computed: {
     currentRouteName() {
@@ -54,12 +56,11 @@ export default {
     },
   },
   methods: {
-    setTheURL()
-    {
-      this.$store.commit("setURL", this.userURL)
-      this.userURL = ""
-    }
-  }
+    setTheURL() {
+      this.$store.commit("setURL", this.userURL);
+      this.userURL = "";
+    },
+  },
 };
 </script>
 
