@@ -22,14 +22,14 @@
         </ul>
         <div class="mr-3">
           <span class="url-popup" v-show="show"
-            >{{ "Request is sending to >> "
+            >{{ "Request is sending to: "
             }}{{
               this.$store.getters.getURL == ""
-                ? "Empty"
+                ? "No where"
                 : this.$store.getters.getURL
             }}</span
           >
-          <span @mouseover="show = !show" @mouseleave="show = !show">URL</span>
+          <span class="URL-span" @mouseover="show = !show" @mouseleave="show = !show">URL</span>
         </div>
         <form class="form-inline my-2 my-lg-0" v-on:submit.prevent="setTheURL">
           <input
@@ -82,7 +82,7 @@ export default {
 }
 
 .url-popup {
-  background-color: rgb(26, 92, 75);
+  background-color: #40c98d;
   color: #ffffff;
   padding: 8px 15px;
   border-radius: 10px;
@@ -94,5 +94,16 @@ export default {
 .websiteheader {
   position: sticky;
   top: 0;
+}
+
+.URL-span {
+  padding: 8px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.URL-span:hover {
+  background-color: #40c98d;
+  color: #ffffff;
 }
 </style>
