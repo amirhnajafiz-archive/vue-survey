@@ -5,6 +5,7 @@ import App from './App'
 import VueRouter from 'vue-router'
 import HomePage from './components/HomePage'
 import AppContainer from './components/Container'
+import store from "./store";
 
 Vue.use(VueRouter);
 
@@ -25,6 +26,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

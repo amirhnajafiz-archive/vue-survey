@@ -12,7 +12,7 @@
     </div>
     <div class="row-submit" v-if="4 == index">
       <button type="button" class="btn btn-primary" @click="send_data">
-        Submit
+        Send
       </button>
     </div>
     <div class="request-res" v-if="sendIsOn">
@@ -95,7 +95,7 @@ export default {
           console.log(this.responseText);
         }
       };
-      xhttp.open("POST", "", true);
+      xhttp.open("POST", this.$store.getters.getURL, true);
       xhttp.setRequestHeader("Content-type", "JSON");
       xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
       xhttp.send(data);
@@ -147,7 +147,7 @@ export default {
     isValidBirthdate(birthdate) {
       return birthdate;
     },
-  },
+  }
 };
 </script>
 

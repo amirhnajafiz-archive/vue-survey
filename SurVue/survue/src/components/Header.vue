@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item mr-3">
+          <li class="nav-item ">
             <div :class="['nav-boxing', { active: currentRouteName == '/' }]">
               <router-link to="/" custom v-slot="{ navigate }">
                 <a @click="navigate" role="link">Home</a>
@@ -20,11 +20,16 @@
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" v-on:submit.prevent="">
+        <div class="mr-5"> 
+          <span>URL</span>
+          <span>{{ this.$store.getters.getURL }}</span>
+        </div>
+        <form class="form-inline my-2 my-lg-0" v-on:submit.prevent="setTheURL">
           <input
             class="form-control mr-sm-2"
             type="search"
             placeholder="Search"
+            v-model="userURL"
           />
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
             Set URL
@@ -38,10 +43,22 @@
 <script>
 export default {
   name: "AppHeader",
+  data(){
+    return {
+      userURL: ""
+    }
+  },
   computed: {
     currentRouteName() {
       return this.$route.path;
     },
+  },
+  methods: {
+    setTheURL()
+    {
+      this.$store.commit("setURL", this.userURL)
+      this.userURL = ""
+    }
   }
 };
 </script>
