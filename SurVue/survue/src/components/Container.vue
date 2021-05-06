@@ -20,7 +20,7 @@
       <button @click="sendIsOn = false">&#10003;</button>
     </div>
     <div class="exceptions" v-if="formErrors.length != 0">
-      <p>Please fix these errors:</p>
+      <p id="error-msg">Please fix the following errors:</p>
       <ul>
         <li
           class="error_item"
@@ -253,5 +253,9 @@ export default {
 .request-res > button:hover {
   background-color: rgb(148, 52, 52);
   color: #ffffff;
+}
+
+#error-msg {
+  font-size: 20px;
 }
 </style>

@@ -26,10 +26,17 @@
             }}{{
               this.$store.getters.getURL == ""
                 ? "No where"
+                : this.$store.getters.getURL.length > 50
+                ? this.$store.getters.getURL.slice(0, 50) + " ... "
                 : this.$store.getters.getURL
             }}</span
           >
-          <span class="URL-span" @mouseover="show = !show" @mouseleave="show = !show">URL</span>
+          <span
+            class="URL-span"
+            @mouseover="show = !show"
+            @mouseleave="show = !show"
+            >URL</span
+          >
         </div>
         <form class="form-inline my-2 my-lg-0" v-on:submit.prevent="setTheURL">
           <input

@@ -1,6 +1,6 @@
 <template>
   <div class="form-input-div">
-    <div class="input-row">
+    <div class="input-row" style="border-bottom:1px solid rgb(129, 129, 129); padding-bottom:40px;">
       <label for="user-id-input">Enter your national ID</label>
       <input
         id="user-id-input"
@@ -60,7 +60,7 @@ input[type="number"] {
   height: 50px;
   outline: none;
   border-radius: 10px;
-  border: 0px solid black;
+  border: 0px solid #000000;
   background-color: #40c98d;
   color: white;
   width: 300px;

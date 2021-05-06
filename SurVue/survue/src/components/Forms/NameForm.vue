@@ -1,6 +1,6 @@
 <template>
   <div class="form-input-div">
-    <div class="input-row">
+    <div class="input-row" style="border-bottom:1px solid rgb(129, 129, 129); padding-bottom:40px;">
       <label for="user-name-input">Enter your name</label>
       <input
         id="user-name-input"

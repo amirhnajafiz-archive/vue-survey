@@ -1,7 +1,7 @@
 <template>
   <div class="survey-container">
     <label class="new-label">Select your favorite programming languages</label>
-    <div class="input-row">
+    <div class="input-row" style="border-bottom:1px solid rgb(129, 129, 129); padding-bottom:40px;">
       <span v-for="item in programming_languages" :key="item.id">
         <label v-bind:for="'pitem' + item.id">{{ item.title }}</label>
         <input
@@ -13,7 +13,7 @@
       </span>
     </div>
     <label class="new-label">Select your favorite front-end framework</label>
-    <div class="input-row">
+    <div class="input-row" style="border-bottom:1px solid rgb(129, 129, 129); padding-bottom:40px;">
       <span v-for="item in front_frameworks" :key="item.id">
         <label v-bind:for="'fitem' + item.id">{{ item.title }}</label>
         <input
@@ -25,7 +25,7 @@
       </span>
     </div>
     <label class="new-label">Select your favorite back-end framework</label>
-    <div class="input-row">
+    <div class="input-row" style="border-bottom:1px solid rgb(129, 129, 129); padding-bottom:40px;">
       <span v-for="item in back_framworks" :key="item.id">
         <label v-bind:for="'bitem' + item.id">{{ item.title }}</label>
         <input

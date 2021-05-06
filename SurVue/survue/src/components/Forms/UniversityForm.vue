@@ -1,6 +1,6 @@
 <template>
   <div class="form-input-div">
-    <div class="input-row">
+    <div class="input-row" style="border-bottom:1px solid rgb(129, 129, 129); padding-bottom:40px;">
       <label for="university-input">Choose your university</label>
       <select id="university-input" v-model="university_name">
         <option v-for="university in input_universities" :key="university.id">
