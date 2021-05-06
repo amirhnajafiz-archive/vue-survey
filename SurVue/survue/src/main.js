@@ -8,14 +8,6 @@ import AppContainer from './components/Container'
 
 Vue.use(VueRouter);
 
-Vue.mixin({
-  data: function() {
-    return {
-      FormURL: 'data'
-    }
-  }
-})
-
 const routes = [
   {
     path: '/', component: HomePage

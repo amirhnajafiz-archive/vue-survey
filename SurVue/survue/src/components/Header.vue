@@ -20,12 +20,11 @@
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" v-on:submit.prevent="setURL">
+        <form class="form-inline my-2 my-lg-0" v-on:submit.prevent="">
           <input
             class="form-control mr-sm-2"
             type="search"
             placeholder="Search"
-            v-model="urlInput"
           />
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
             Set URL
@@ -39,21 +38,10 @@
 <script>
 export default {
   name: "AppHeader",
-  data() {
-    return {
-      urlInput: ""
-    }
-  },
   computed: {
     currentRouteName() {
       return this.$route.path;
     },
-  },
-  methods: {
-    setURL()
-    {
-      this.FormURL = this.urlInput;
-    }
   }
 };
 </script>

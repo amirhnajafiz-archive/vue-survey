@@ -95,7 +95,7 @@ export default {
           console.log(this.responseText);
         }
       };
-      xhttp.open("POST", this.$FormURL, true);
+      xhttp.open("POST", "", true);
       xhttp.setRequestHeader("Content-type", "JSON");
       xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
       xhttp.send(data);
