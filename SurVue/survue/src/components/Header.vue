@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="websiteheader">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -21,8 +21,15 @@
           </li>
         </ul>
         <div class="mr-3">
-          <span class="mr-5" v-show="show">{{ "Current URL : "}}{{ this.$store.getters.getURL == "" ? "Empty" : this.$store.getters.getURL }}</span>
-          <span @mouseover="show=!show" @mouseleave="show=!show">URL</span>
+          <span class="url-popup" v-show="show"
+            >{{ "Request is sending to >> "
+            }}{{
+              this.$store.getters.getURL == ""
+                ? "Empty"
+                : this.$store.getters.getURL
+            }}</span
+          >
+          <span @mouseover="show = !show" @mouseleave="show = !show">URL</span>
         </div>
         <form class="form-inline my-2 my-lg-0" v-on:submit.prevent="setTheURL">
           <input
@@ -41,7 +48,6 @@
 </template>
 
 <script>
-
 export default {
   name: "AppHeader",
   data() {
@@ -73,5 +79,20 @@ export default {
 .active {
   background-color: #40c98d;
   color: #ffffff;
+}
+
+.url-popup {
+  background-color: rgb(26, 92, 75);
+  color: #ffffff;
+  padding: 8px 15px;
+  border-radius: 10px;
+  position: relative;
+  top: 40px;
+  right: -40px;
+}
+
+.websiteheader {
+  position: sticky;
+  top: 0;
 }
 </style>

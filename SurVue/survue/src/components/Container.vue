@@ -147,7 +147,7 @@ export default {
     isValidBirthdate(birthdate) {
       return birthdate;
     },
-  }
+  },
 };
 </script>
 

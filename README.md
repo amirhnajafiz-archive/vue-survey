@@ -16,14 +16,12 @@ a HTTP request via <b>vue-fetch</b>.<br />
 
 Todo :
 <ul>
-  <li>Customize layout</li>
-  <li>URL handeling</li>
   <li>Authorizing</li>
 </ul>
 
 Doing :
 <ul>
-  
+  <li>Customize layout</li>
 </ul>
 
 Done :
@@ -37,4 +35,5 @@ Done :
   <li>Create an http request of user inputs</li>
   <li>Send an http request to webhook</li>
   <li>Errors handeling</li>
+  <li>URL handeling</li>
 </ul>
