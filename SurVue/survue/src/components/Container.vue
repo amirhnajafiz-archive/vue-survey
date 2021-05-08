@@ -89,10 +89,10 @@ export default {
       var msg = "";
       xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-          msg = this.responseText;
+          msg = "Thank you, your request was sent.";
         } else {
           msg = "Request could not be sent.";
-          console.log(this.responseText);
+          console.log(this.status + "|" + this.statusText);
         }
       };
       xhttp.open("POST", this.$store.getters.getURL, true);
