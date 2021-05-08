@@ -9,30 +9,54 @@
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
         aria-label="Toggle navigation"
-        style="margin:0 auto;"
-        @click="popupshow=!popupshow"
+        style="margin: 0 auto"
+        @click="popupshow = !popupshow"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div v-show="popupshow" class="nav-popup"> 
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <div :class="['nav-boxing', { active: currentRouteName == '/' }]">
-              <router-link to="/" custom v-slot="{ navigate }">
-                <a @click="navigate" role="link">Home</a>
-              </router-link>
-            </div>
-          </li>
-          <li class="nav-item">
-            <div
-              :class="['nav-boxing', { active: currentRouteName == '/survey' }]"
-            >
-              <router-link to="/survey" custom v-slot="{ navigate }">
-                <a @click="navigate" role="link">Survey</a>
-              </router-link>
-            </div>
-          </li>
-        </ul>
+      <div v-show="popupshow" class="nav-popup">
+        <div class="nav-popup-item">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <div :class="['nav-boxing', { active: currentRouteName == '/' }]">
+                <router-link to="/" custom v-slot="{ navigate }">
+                  <a @click="navigate" role="link">Home</a>
+                </router-link>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div
+                :class="[
+                  'nav-boxing',
+                  { active: currentRouteName == '/survey' },
+                ]"
+              >
+                <router-link to="/survey" custom v-slot="{ navigate }">
+                  <a @click="navigate" role="link">Survey</a>
+                </router-link>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-popup-item">
+          <form
+            class="form-inline my-2 my-lg-0"
+            v-on:submit.prevent="setTheURL"
+          >
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Enter the URL"
+              v-model="userURL"
+            /><br />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Set URL
+            </button>
+          </form>
+        </div>
+        <div>
+          {{ "URL: " + getCurrentURL }}
+        </div>
       </div>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -55,14 +79,7 @@
         </ul>
         <div class="mr-3">
           <span class="url-popup" v-show="show"
-            >{{ "Request is sending to: "
-            }}{{
-              this.$store.getters.getURL == ""
-                ? "No where"
-                : this.$store.getters.getURL.length > 50
-                ? this.$store.getters.getURL.slice(0, 50) + " ... "
-                : this.$store.getters.getURL
-            }}</span
+            >{{ "Request is sending to: " }}{{ getCurrentURL }}</span
           >
           <span
             class="URL-span"
@@ -101,6 +118,13 @@ export default {
   computed: {
     currentRouteName() {
       return this.$route.path;
+    },
+    getCurrentURL() {
+      return this.$store.getters.getURL == ""
+        ? "No where"
+        : this.$store.getters.getURL.length > 50
+        ? this.$store.getters.getURL.slice(0, 50) + " ... "
+        : this.$store.getters.getURL;
     },
   },
   methods: {
@@ -176,7 +200,16 @@ export default {
   clear: both;
   width: 100%;
   justify-content: center;
+  flex-wrap: wrap;
   margin: 20px 0;
+}
+
+.nav-popup-item {
+  display: flex;
+  clear: both;
+  width: 100%;
+  justify-content: center;
+  justify-items: center;
 }
 
 @media screen and (min-width: 1000px) {
