@@ -139,7 +139,7 @@ export default {
       return fname && lname;
     },
     isValidId(id) {
-      return id.length != 10 && !isNaN(id) && id.startsWith("092");
+      return id.length == 10 && !isNaN(id) && id.startsWith("092");
     },
     isValidUniId(id) {
       return id.length > 6 && id.length < 10 && !isNaN(id);
