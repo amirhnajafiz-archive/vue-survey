@@ -44,7 +44,7 @@ export default {
   position: relative;
   bottom: 0;
   width: 100%;
-  height: 22vh;
+  height: 200px;
   background-color: #40c98d;
   color: #27394a;
 }
